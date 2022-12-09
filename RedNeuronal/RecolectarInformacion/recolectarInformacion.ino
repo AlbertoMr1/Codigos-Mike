@@ -32,7 +32,7 @@ void loop() {
 }
 
 int getRojo(){
-  //Leer coclor rojo
+  //Leer color rojo
   digitalWrite(s2, LOW);
   digitalWrite(s3, LOW);
   int ROJO = pulseIn(out, LOW);
@@ -40,7 +40,7 @@ int getRojo(){
 }
 
 int getAzul(){
-  //Leer coclor azul
+  //Leer color azul
   digitalWrite(s2, LOW);
   digitalWrite(s3, HIGH);
   int AZUL = pulseIn(out, LOW);
@@ -48,7 +48,7 @@ int getAzul(){
 }
 
 int getVerde(){
-  //Leer coclor verde
+  //Leer color verde
   digitalWrite(s2, HIGH);
   digitalWrite(s3, HIGH);
   int VERDE = pulseIn(out, LOW);
