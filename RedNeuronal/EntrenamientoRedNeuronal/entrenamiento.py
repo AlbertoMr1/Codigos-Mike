@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[18]:
-
-
 from keras.models import Sequential
 import numpy as np
 from keras.layers.core import Dense
@@ -12,27 +9,15 @@ from sklearn.metrics import confusion_matrix
 import pandas as pd
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
-
-# In[19]:
-
-
 conjunto_datos = pd.read_csv('entrenamiento.csv', header=None, sep=',', skiprows=range(1))
 datos_entrada = conjunto_datos.iloc[:,0:3].values
 datos_salida = conjunto_datos.iloc[:,3:4].values
-
-
-# In[20]:
-
 
 modelo = Sequential()
 modelo.add(Dense(2, input_dim = 3,activation ='relu'))
 modelo.add(Dense(1, activation = 'sigmoid'))
 modelo.compile(loss = 'mean_squared_error', optimizer = 'adam', metrics = ['binary_accuracy'])
 modelo.fit(datos_entrada, datos_salida, epochs = 500)
-
-
-# In[21]:
-
 
 p,b = modelo.layers[0].get_weights()
 p2,b2 = modelo.layers[1].get_weights()
@@ -52,13 +37,8 @@ y_pred = (y_pred >=.5)
 cm = confusion_matrix(datos_salida, y_pred)
 print(cm)
 
-
-# In[22]:
-
-
 p,b = modelo.layers[0].get_weights()
 p2,b2 = modelo.layers[1].get_weights()
 print(p, b)
 print("----")
 print(p2,b2)
-
